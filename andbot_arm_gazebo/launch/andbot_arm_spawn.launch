@@ -1,0 +1,13 @@
+<launch>
+  <arg name="robot" default="base"/>
+  <arg name="gzpose" default="-x 0 -y 0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
+
+  <!-- Robot model -->
+  <include file="$(find andbot_arm_description)/robots/upload_andbot_arm.launch">
+    <arg name="robot" default="$(arg robot)"/>
+  </include>
+
+  <!-- Spawn robot in Gazebo -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_model"
+        args="-urdf -param robot_description $(arg gzpose) -model andbot_arm"/>
+</launch>

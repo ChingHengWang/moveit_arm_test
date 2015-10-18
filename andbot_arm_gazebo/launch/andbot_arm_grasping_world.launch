@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find andbot_arm_gazebo)/launch/andbot_arm_gazebo.launch">
+    <arg name="world" default="grasping"/>
+    <arg name="robot" default="rgbd"/>
+  </include>
+</launch>
